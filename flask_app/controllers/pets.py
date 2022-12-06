@@ -31,7 +31,8 @@ def search_filter():
 
     data = {
         'location': request.form['location'],
-        'type': request.form['type']
+        'type': request.form['type'],
+        'breed': request.form['breed']
     }
     print(data)
 
