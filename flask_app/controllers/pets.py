@@ -76,6 +76,7 @@ def create_pet():
         'name': request.form['name'],
         'description': request.form['description'],
         'type': request.form['type'],
+        'breed': request.form['breed'],
         'age': request.form['age'],
         'location': request.form['location'],
         'phone': request.form['phone'],

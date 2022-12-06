@@ -29,7 +29,9 @@ class Pet:
 
     @classmethod
     def save(cls, data):
-        query = 'INSERT INTO pets (name, type,breed, age, location, description, phone, image, user_id, gender) VALUES (%(name)s, %(type)s,%(breed)s, %(age)s, %(location)s, %(description)s, %(phone)s, %(image)s, %(user_id)s, %(gender)s)'
+        print(data['phone'])
+        print(data)
+        query = 'INSERT INTO pets (name, type, breed, age, location, description, phone, image, user_id, gender) VALUES (%(name)s, %(type)s, %(breed)s, %(age)s, %(location)s, %(description)s, %(phone)s, %(image)s, %(user_id)s, %(gender)s)'
         newId = connectToMySQL('adoptaclick').query_db(query, data)
         return newId
 
