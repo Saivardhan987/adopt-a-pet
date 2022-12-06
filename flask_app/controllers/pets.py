@@ -24,7 +24,7 @@ def search_pet():
     return render_template('search.html', user=user, pets=pets)
 
 
-@app.route('/search/filtrar', methods=['POST'])
+@app.route('/search/filter', methods=['POST'])
 def search_filter():
     if 'user_id' not in session:
         return redirect('/login')
@@ -33,6 +33,7 @@ def search_filter():
         'location': request.form['location'],
         'type': request.form['type']
     }
+    print(data)
 
     user = User.get_by_id({'id': session['user_id']})
 

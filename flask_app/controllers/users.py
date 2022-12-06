@@ -32,7 +32,7 @@ def login():
 
     # Login Failure
     if not user:
-        flash('Email not registerd', 'login')
+        flash('Email not registered', 'login')
         return redirect('/login')
     if not bcrypt.check_password_hash(user.password, request.form['login_password']):
         flash('Wrong password', 'login')

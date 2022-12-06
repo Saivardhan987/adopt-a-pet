@@ -48,8 +48,8 @@
 				name="gender"
 				id="gender"
 			>
-				<option {% if pet.gender == 'Macho' %} selected {% endif %} class="bg-slate-900" value="Macho">Male</option>
-				<option {% if pet.gender == 'Hembra' %} selected {% endif %} class="bg-slate-900" value="Hembra">Female</option>
+				<option {% if pet.gender == 'Male' %} selected {% endif %} class="bg-slate-900" value="Male">Male</option>
+				<option {% if pet.gender == 'Female' %} selected {% endif %} class="bg-slate-900" value="Female">Female</option>
 			</select>
 
 			<label for="age">Age of Pet</label>
@@ -84,7 +84,9 @@
 			<p class="text-center text-xl font-bold">How can we contact you?</p>
 
 			<label for="location">Location</label>
-			<select
+			<!-- Input text field for location -->
+			<input type="text" name="location" id="location" placeholder="City Name..." class="bg-gray-800 border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500 transition-all rounded px-2 py-1">
+			<!-- <select
 				class="bg-gray-800 border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500 transition-all rounded px-2 py-1"
 				name="location"
 				id="location"
@@ -124,7 +126,7 @@
 				<option {% if pet.location == 'San Ramón' %} selected {% endif %} class="bg-slate-900" value="San Ramón">San Ramón</option>
 				<option {% if pet.location == 'Santiago' %} selected {% endif %} class="bg-slate-900" value="Santiago">Santiago</option>
 				<option {% if pet.location == 'Vitacura' %} selected {% endif %} class="bg-slate-900" value="Vitacura">Vitacura</option>
-			</select>
+			</select> -->
 
 			<label for="phone">Phone Number</label>
 			<input

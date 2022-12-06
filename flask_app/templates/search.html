@@ -14,7 +14,7 @@ primaryButton %}
 	class="flex gap-4 flex-col md:flex-row text-white max-w-7xl mx-auto px-2 md:px-0"
 >
 	<div class="bg-slate-900 md:w-1/6 rounded h-fit">
-		<form class="p-4" action="/search/filtrar" method="POST">
+		<form class="p-4" action="/search/filter" method="POST">
 			<label class="font-bold" for="type">Type of Pet</label>
 			<br />
 			<select
@@ -28,7 +28,8 @@ primaryButton %}
 			</select>
 			<label class="font-bold" for="location">Location</label>
 			<br />
-			<select
+			<input type="text" name="location" id="location" class="mb-4 bg-inherit p-2 w-full text-white border-2 border-slate-500 rounded focus:outline-none" />
+			<!-- <select
 				class="mb-2 bg-inherit p-2 w-full text-white border-2 border-slate-500 rounded focus:outline-none"
 				name="location"
 				id="location"
@@ -68,7 +69,7 @@ primaryButton %}
 				<option class="bg-slate-900" value="San Ramón">San Ramón</option>
 				<option class="bg-slate-900" value="Santiago">Santiago</option>
 				<option class="bg-slate-900" value="Vitacura">Vitacura</option>
-			</select>
+			</select> -->
 			<input class="text-white bg-purple-500 hover:bg-purple-400 font-bold focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all rounded py-2 hover:cursor-pointer mt-2 tracking-wide w-full" type="submit" value="Filter">
 			<a class="flex flex-auto border-2 justify-center border-purple-300 text-purple-100 hover:bg-slate-800 font-bold focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all rounded py-2 hover:cursor-pointer mt-2 tracking-wide" href="/search">See All</a>
 		</form>

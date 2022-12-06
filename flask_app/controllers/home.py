@@ -9,7 +9,7 @@ def home():
 
 
 @app.route('/login')
-def login():
+def logins():
     if 'user_id' in session:
         return redirect('/search')
     return render_template('login.html')

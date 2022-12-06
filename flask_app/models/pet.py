@@ -53,7 +53,7 @@ class Pet:
         query = 'SELECT * FROM pets WHERE location = %(location)s and type = %(type)s'
         results = connectToMySQL('adoptaclick').query_db(query, data)
         pets = []
-        print('👉', data, results)
+        # print('👉', data, results)
         for row in results:
             pets.append(cls(row))
         return pets
