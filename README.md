@@ -16,8 +16,8 @@ py server.py
 - MySQL as the data base
 - AOS Library for Scroll animations
 
-![image1](imgs/landing.png)
+<!-- ![image1](imgs/landing.png)
 
 |           Desktop            |           Mobile            |
 | :--------------------------: | :-------------------------: |
-| ![](imgs/browse-desktop.png) | ![](imgs/browse-mobile.png) |
+| ![](imgs/browse-desktop.png) | ![](imgs/browse-mobile.png) | -->
