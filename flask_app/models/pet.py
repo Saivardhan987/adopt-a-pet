@@ -8,6 +8,7 @@ class Pet:
         self.id = data['id']
         self.name = data['name']
         self.type = data['type']
+        self.breed = data['breed']
         self.age = data['age']
         self.location = data['location']
         self.description = data['description']
@@ -28,7 +29,7 @@ class Pet:
 
     @classmethod
     def save(cls, data):
-        query = 'INSERT INTO pets (name, type, age, location, description, phone, image, user_id, gender) VALUES (%(name)s, %(type)s, %(age)s, %(location)s, %(description)s, %(phone)s, %(image)s, %(user_id)s, %(gender)s)'
+        query = 'INSERT INTO pets (name, type,breed, age, location, description, phone, image, user_id, gender) VALUES (%(name)s, %(type)s,%(breed)s, %(age)s, %(location)s, %(description)s, %(phone)s, %(image)s, %(user_id)s, %(gender)s)'
         newId = connectToMySQL('adoptaclick').query_db(query, data)
         return newId
 
@@ -50,7 +51,7 @@ class Pet:
 
     @classmethod
     def get_filtered(cls, data):
-        query = 'SELECT * FROM pets WHERE location = %(location)s and type = %(type)s'
+        query = 'SELECT * FROM pets WHERE location = %(location)s and type = %(type)s and breed = %(breed)s'
         results = connectToMySQL('adoptaclick').query_db(query, data)
         pets = []
         # print('👉', data, results)
@@ -66,7 +67,7 @@ class Pet:
 
     @classmethod
     def update(cls, data):
-        query = 'UPDATE pets SET name = %(name)s, type = %(type)s, age = %(age)s, location = %(location)s, description = %(description)s, phone = %(phone)s, image = %(image)s, gender = %(gender)s WHERE (id = %(id)s);'
+        query = 'UPDATE pets SET name = %(name)s, type = %(type)s,breed = %(breed)s,age = %(age)s, location = %(location)s, description = %(description)s, phone = %(phone)s, image = %(image)s, gender = %(gender)s WHERE (id = %(id)s);'
         result = connectToMySQL('adoptaclick').query_db(query, data)
         return result
 
@@ -79,7 +80,7 @@ class Pet:
         if form['age'] == '':
             flash('You must enter an age', 'pet')
             is_valid = False
-        if len(form['phone']) < 8:
+        if len(form['phone']) < 10:
             flash('You must enter an appropriate phone number', 'pet')
             is_valid = False
         if form['description'] == '':

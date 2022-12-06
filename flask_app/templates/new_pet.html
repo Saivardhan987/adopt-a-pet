@@ -8,7 +8,7 @@ block primaryButton %}
 {% endblock %}{% block content %}
 <section class="text-white mb-8">
   <p class="text-center text-xl font-bold">Tell us about your pet...</p>
-  {% with messages = get_flashed_messages(category_filter=['pets']) %} {% if
+  {% with messages = get_flashed_messages(category_filter=['pet']) %} {% if
   messages %}
   <div class="p-2 bg-red-100 border border-red-200 rounded mb-6">
     {% for message in messages %}
@@ -36,9 +36,9 @@ block primaryButton %}
         name="type"
         id="type"
       >
-        <option class="bg-slate-900" value="Gato">Cat</option>
-        <option class="bg-slate-900" value="Perro">Dog</option>
-        <option class="bg-slate-900" value="Otro">Others</option>
+        <option class="bg-slate-900" value="cat">Cat</option>
+        <option class="bg-slate-900" value="Dog">Dog</option>
+        <option class="bg-slate-900" value="Others">Others</option>
       </select>
 
       <label for="gender">Gender of Pet</label>
@@ -50,6 +50,17 @@ block primaryButton %}
         <option class="bg-slate-900" value="Male">Male</option>
         <option class="bg-slate-900" value="Female">Female</option>
       </select>
+
+      <label for="breed">Breed of Pet</label>
+      <input
+        type="text"
+        name="breed"
+        id="breed"
+        value=""
+        placeholder="breed.."
+        class="bg-gray-800 border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500 transition-all rounded px-2 py-1"
+      />
+
 
       <label for="age">Age of Pet</label>
       <input
