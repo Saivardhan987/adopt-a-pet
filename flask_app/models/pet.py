@@ -54,7 +54,8 @@ class Pet:
 
     @classmethod
     def get_filtered(cls, data):
-        query = 'SELECT * FROM pets WHERE location = %(location)s or type = %(type)s or breed = %(breed)s'
+        query = 'SELECT * FROM pets WHERE type = %(type)s'+ (' and location = %(location)s' if data['location']  else '')  +(' and breed = %(breed)s' if data['breed']  else '') + ';'
+        print(query)
         results = connectToMySQL('adoptaclick').query_db(query, data)
         pets = []
         for row in results:

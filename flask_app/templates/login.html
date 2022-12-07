@@ -1,92 +1,106 @@
 {% extends 'main.html' %} {% block title %}Login — adopta.pet{% endblock %} {%
 block hidden %}{% endblock %} {% block content %}
-<section
-  class="mb-8 mt-[2vh] md:mt-[7vh] max-h-screen md:grid grid-cols-2 space-y-16 sm:space-y-0 gap-4 px-4 lg:px-0 text-white max-w-2xl mx-auto"
+<body
+  style="
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: fill;
+    background-image: url('https://images.pexels.com/photos/6129396/pexels-photo-6129396.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  "
 >
-  <form
-    class="flex flex-col gap-2 mb-10"
-    action="/users/register"
-    method="POST"
+  <section
+    class="mb-8 p-5 mt-[2vh] backdrop-blur-md bg-black opacity-80 rounded-lg md:mt-[10px] max-h-screen md:grid grid-cols-2 space-y-5 sm:space-y-0 gap-2 lg:px-0 text-white max-w-3xl mx-auto"
   >
-    <h1 class="font-bold text-xl text-center">Register!</h1>
-    {% with messages = get_flashed_messages(category_filter=['register']) %} {%
-    if messages %}
-    <div class="p-2 bg-red-100 border border-red-200 rounded">
-      {% for message in messages %}
-      <p class="text-red-500">{{message}}</p>
-      {% endfor%}
-    </div>
-    {% endif %} {% endwith %}
-    <label for="first_name">First Name</label>
-    <input
-      class="bg-gray-800 border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500 transition-all rounded px-2 py-1"
-      type="text"
-      name="first_name"
-      id="first_name"
-    />
-    <label for="last_name">Last Name</label>
-    <input
-      class="bg-gray-800 border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500 transition-all rounded px-2 py-1"
-      type="text"
-      name="last_name"
-      id="last_name"
-    />
-    <label for="register_email">Email</label>
-    <input
-      class="bg-gray-800 border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500 transition-all rounded px-2 py-1"
-      type="text"
-      name="register_email"
-      id="register_email"
-    />
-    <label for="register_password">Password</label>
-    <input
-      class="bg-gray-800 border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500 transition-all rounded px-2 py-1"
-      type="password"
-      name="register_password"
-      id="register_password"
-    />
-    <label for="confirm_password">Confirm Password</label>
-    <input
-      class="bg-gray-800 border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500 transition-all rounded px-2 py-1"
-      type="password"
-      name="confirm_password"
-      id="confirm_password"
-    />
-    <input
-      class="text-white bg-purple-500 hover:bg-purple-400 font-bold focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all rounded py-2 hover:cursor-pointer mt-2 tracking-wide"
-      type="submit"
-      value="Register Me"
-    />
-  </form>
-  <form class="flex flex-col gap-2" action="/users/login" method="POST">
-    <h1 class="font-bold text-xl text-center">Log In</h1>
-    {% with messages = get_flashed_messages(category_filter=['login']) %} {% if
-    messages %}
-    <div class="p-2 bg-red-100 border border-red-200 rounded">
-      {% for message in messages %}
-      <p class="text-red-500">{{message}}</p>
-      {% endfor%}
-    </div>
-    {% endif %} {% endwith %}
-    <label for="login_email">Email</label>
-    <input
-      class="bg-gray-800 border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500 transition-all rounded px-2 py-1"
-      type="text"
-      name="login_email"
-      id="login_email"
-    />
-    <label for="login_password">Password</label>
-    <input
-      class="bg-gray-800 border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500 transition-all rounded px-2 py-1"
-      type="password"
-      name="login_password"
-      id="login_password"
-    />
-    <input
-      class="text-white bg-purple-500 hover:bg-purple-400 font-bold focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all rounded py-2 hover:cursor-pointer mt-2 tracking-wide"
-      type="submit"
-      value="Login"
-    />
-  </form>
-</section>
+    <form
+      class="flex flex-col gap-2 mx-5 p-5 opacity-100 border-[0.5px] rounded-lg bg-gray-800"
+      action="/users/register"
+      method="POST"
+    >
+      <h1 class="font-bold text-xl text-center">Register</h1>
+      {% with messages = get_flashed_messages(category_filter=['register']) %}
+      {% if messages %}
+      <div class="p-2 bg-gray-500 border-2 border-red-600 rounded">
+        {% for message in messages %}
+        <p class="text-gray-900 font-semibold">{{message}}</p>
+        {% endfor%}
+      </div>
+      {% endif %} {% endwith %}
+      <label for="first_name">First Name</label>
+      <input
+        class="bg-gray-900 border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500 transition-all rounded px-2 py-1"
+        type="text"
+        name="first_name"
+        id="first_name"
+      />
+      <label for="last_name">Last Name</label>
+      <input
+        class="bg-gray-900 border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500 transition-all rounded px-2 py-1"
+        type="text"
+        name="last_name"
+        id="last_name"
+      />
+      <label for="register_email">Email</label>
+      <input
+        class="bg-gray-900 border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500 transition-all rounded px-2 py-1"
+        type="text"
+        name="register_email"
+        id="register_email"
+      />
+      <label for="register_password">Password</label>
+      <input
+        class="bg-gray-900 border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500 transition-all rounded px-2 py-1"
+        type="password"
+        name="register_password"
+        id="register_password"
+      />
+      <label for="confirm_password">Confirm Password</label>
+      <input
+        class="bg-gray-900 border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500 transition-all rounded px-2 py-1"
+        type="password"
+        name="confirm_password"
+        id="confirm_password"
+      />
+      <input
+        class="text-white bg-purple-500 hover:bg-purple-400 font-bold focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all rounded py-2 hover:cursor-pointer mt-2 tracking-wide"
+        type="submit"
+        value="Register Me"
+      />
+    </form>
+    <form
+      class="flex flex-col gap-2 p-5 mx-5 border-[0.5px] rounded-lg bg-gray-800"
+      action="/users/login"
+      method="POST"
+    >
+      <h1 class="font-bold text-xl text-center">Log In</h1>
+      {% with messages = get_flashed_messages(category_filter=['login']) %} {%
+      if messages %}
+      <div class="p-2 bg-gray-500 border border-red-200 rounded">
+        {% for message in messages %}
+        <p class="text-gray-900 font-semibold">{{message}}</p>
+        {% endfor%}
+      </div>
+      {% endif %} {% endwith %}
+      <label for="login_email">Email</label>
+      <input
+        class="bg-gray-900 border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500 transition-all rounded px-2 py-1"
+        type="text"
+        name="login_email"
+        id="login_email"
+      />
+      <label for="login_password">Password</label>
+      <input
+        class="bg-gray-900 border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500 transition-all rounded px-2 py-1"
+        type="password"
+        name="login_password"
+        id="login_password"
+      />
+      <input
+        class="text-white bg-purple-500 hover:bg-purple-400 font-bold focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all rounded py-2 hover:cursor-pointer mt-2 tracking-wide"
+        type="submit"
+        value="Login"
+      />
+    </form>
+  </section>
+</body>
 {% endblock %}
