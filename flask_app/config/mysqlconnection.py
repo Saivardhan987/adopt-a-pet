@@ -3,6 +3,13 @@ import pymysql.cursors
 
 class MySQLConnection:
     def __init__(self, db):
+        # connection = pymysql.connect(host='192.168.0.109',
+        #                              user='sammy',  # change the user and password as needed
+        #                              password='Tester@2709',
+        #                              db=db,
+        #                              charset='utf8mb4',
+        #                              cursorclass=pymysql.cursors.DictCursor,
+        #                              autocommit=True)
         connection = pymysql.connect(host='localhost',
                                      user='root',  # change the user and password as needed
                                      password='tester',
@@ -17,7 +24,6 @@ class MySQLConnection:
             try:
                 query = cursor.mogrify(query, data)
                 # print("Running Query:", query)
-
                 executable = cursor.execute(query, data)
                 if query.lower().find("insert") >= 0:
                     # if the query is an insert, return the id of the last row, since that is the row we just added
