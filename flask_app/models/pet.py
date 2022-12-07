@@ -1,7 +1,8 @@
 from flask_app.config.mysqlconnection import connectToMySQL
-
+import re
 from flask import flash
 
+PHONE_REGEX = re.compile(r'^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$')
 
 class Pet:
     def __init__(self, data):
@@ -53,10 +54,9 @@ class Pet:
 
     @classmethod
     def get_filtered(cls, data):
-        query = 'SELECT * FROM pets WHERE location = %(location)s and type = %(type)s and breed = %(breed)s'
+        query = 'SELECT * FROM pets WHERE location = %(location)s or type = %(type)s or breed = %(breed)s'
         results = connectToMySQL('adoptaclick').query_db(query, data)
         pets = []
-        # print('👉', data, results)
         for row in results:
             pets.append(cls(row))
         return pets
@@ -69,7 +69,8 @@ class Pet:
 
     @classmethod
     def update(cls, data):
-        query = 'UPDATE pets SET name = %(name)s, type = %(type)s,breed = %(breed)s,age = %(age)s, location = %(location)s, description = %(description)s, phone = %(phone)s, image = %(image)s, gender = %(gender)s WHERE (id = %(id)s);'
+        query = 'UPDATE pets SET name = %(name)s, type = %(type)s, breed = %(breed)s,age = %(age)s, location = %(location)s, description = %(description)s, phone = %(phone)s, image = %(image)s, gender = %(gender)s WHERE (id = %(id)s);'
+        print(query)
         result = connectToMySQL('adoptaclick').query_db(query, data)
         return result
 
@@ -82,8 +83,8 @@ class Pet:
         if form['age'] == '':
             flash('You must enter an age', 'pet')
             is_valid = False
-        if len(form['phone']) < 10:
-            flash('You must enter an appropriate phone number', 'pet')
+        if not PHONE_REGEX.match(form['phone']):
+            flash('Invalid phone number', 'register')
             is_valid = False
         if form['description'] == '':
             flash('Tell us at least something about the pet in the description', 'pet')

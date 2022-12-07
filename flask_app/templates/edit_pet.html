@@ -42,6 +42,16 @@
 				<option {% if pet.type == 'Otro' %} selected {% endif %} class="bg-slate-900" value="Otro">Others</option>
 			</select>
 
+			<label for="breed">Breed of Pet</label>
+      <input
+        type="text"
+        name="breed"
+        id="breed"
+        value=""
+        placeholder="breed.."
+        class="bg-gray-800 border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500 transition-all rounded px-2 py-1"
+      />
+
 			<label for="gender">Gender of Pet</label>
 			<select
 				class="bg-gray-800 border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500 transition-all rounded px-2 py-1"

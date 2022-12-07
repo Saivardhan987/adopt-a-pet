@@ -9,8 +9,7 @@ CREATE TABLE IF NOT EXISTS `adoptaclick`.`users` (
   `password` VARCHAR(255) NULL,
   `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+  PRIMARY KEY (`id`));
 
 CREATE TABLE IF NOT EXISTS `adoptaclick`.`pets` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -32,8 +31,7 @@ CREATE TABLE IF NOT EXISTS `adoptaclick`.`pets` (
     FOREIGN KEY (`user_id`)
     REFERENCES `adoptaclick`.`users` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION);
 
 CREATE TABLE IF NOT EXISTS `adoptaclick`.`users_has_pets` (
   `user_id` INT NOT NULL,
@@ -50,7 +48,6 @@ CREATE TABLE IF NOT EXISTS `adoptaclick`.`users_has_pets` (
     FOREIGN KEY (`pet_id`)
     REFERENCES `adoptaclick`.`pets` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION);
 
 select * from pets;

@@ -58,7 +58,6 @@ def create_pet():
     if Pet.validate(request.form) == False:
         return redirect('/search/add')
 
-    # Validaciones de la imagen
     if 'image' not in request.files:
         flash('Image not found', 'pets')
         return redirect('/search/add')
@@ -134,6 +133,7 @@ def update_pet():
         'name': request.form['name'],
         'description': request.form['description'],
         'type': request.form['type'],
+        'breed': request.form['breed'],
         'age': request.form['age'],
         'location': request.form['location'],
         'phone': request.form['phone'],
@@ -141,7 +141,7 @@ def update_pet():
         'user_id': request.form['user_id'],
         'image': image_name
     }
-
+    print(form_data)
     Pet.update(form_data)
     return redirect('/search')
 
@@ -158,6 +158,6 @@ def manage_posts():
     return render_template('manage_posts.html', user=user, pets=pets)
 
 
-@app.route('/show')
-def show_pet():
-    return render_template('show_pet.html')
+# @app.route('/show')
+# def show_pet():
+#     return render_template('show_pet.html')
