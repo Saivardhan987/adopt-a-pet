@@ -6,9 +6,18 @@
 	>Logout</a
 >
 {% endblock %}{% block content %}
-<section class="text-white mb-8">
+<body
+  style="
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: fill;
+    background-image: url('https://images.pexels.com/photos/6129396/pexels-photo-6129396.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  "
+>
+<section class="text-white pb-8 bg-black rounded-lg">
 	<p class="text-center text-xl font-bold">Tell us about your pet...</p>
-	{% with messages = get_flashed_messages(category_filter=['pets']) %} {% if
+	{% with messages = get_flashed_messages(category_filter=['pet']) %} {% if
 	messages %}
 	<div class="max-w-lg mx-auto p-2 bg-red-900 border border-red-500 rounded mb-6">
 		{% for message in messages %}
@@ -47,7 +56,7 @@
         type="text"
         name="breed"
         id="breed"
-        value=""
+        value="{{pet.breed}}"
         placeholder="breed.."
         class="bg-gray-800 border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500 transition-all rounded px-2 py-1"
       />
@@ -95,49 +104,7 @@
 
 			<label for="location">Location</label>
 			<!-- Input text field for location -->
-			<input type="text" name="location" id="location" placeholder="City Name..." class="bg-gray-800 border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500 transition-all rounded px-2 py-1">
-			<!-- <select
-				class="bg-gray-800 border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500 transition-all rounded px-2 py-1"
-				name="location"
-				id="location"
-			>
-				<option {% if pet.location == 'Ñuñoa' %} selected {% endif %} class="bg-slate-900" value="Ñuñoa">Ñuñoa</option>
-				<option {% if pet.location == 'Providencia' %} selected {% endif %} class="bg-slate-900" value="Providencia">Providencia</option>
-				<option {% if pet.location == 'La Florida' %} selected {% endif %} class="bg-slate-900" value="La Florida">La Florida</option>
-				<option {% if pet.location == 'Cerrillos' %} selected {% endif %} class="bg-slate-900" value="Cerrillos">Cerrillos</option>
-				<option {% if pet.location == 'Cerro Navia' %} selected {% endif %} class="bg-slate-900" value="Cerro Navia">Cerro Navia</option>
-				<option {% if pet.location == 'Conchalí' %} selected {% endif %} class="bg-slate-900" value="Conchalí">Conchalí</option>
-				<option {% if pet.location == 'El Bosque' %} selected {% endif %} class="bg-slate-900" value="El Bosque">El Bosque</option>
-				<option {% if pet.location == 'Estación Central' %} selected {% endif %} class="bg-slate-900" value="Estación Central">
-					Estación Central
-				</option>
-				<option {% if pet.location == 'Huechuraba' %} selected {% endif %} class="bg-slate-900" value="Huechuraba">Huechuraba</option>
-				<option {% if pet.location == 'Independencia' %} selected {% endif %} class="bg-slate-900" value="Independencia">Independencia</option>
-				<option {% if pet.location == 'Paine' %} selected {% endif %} class="bg-slate-900" value="Paine">Paine</option>
-				<option {% if pet.location == 'La Granja' %} selected {% endif %} class="bg-slate-900" value="La Granja">La Granja</option>
-				<option {% if pet.location == 'La Pintana' %} selected {% endif %} class="bg-slate-900" value="La Pintana">La Pintana</option>
-				<option {% if pet.location == 'La Reina' %} selected {% endif %} class="bg-slate-900" value="La Reina">La Reina</option>
-				<option {% if pet.location == 'Lo Barnechea' %} selected {% endif %} class="bg-slate-900" value="Lo Barnechea">Lo Barnechea</option>
-				<option {% if pet.location == 'Lo Espejo' %} selected {% endif %} class="bg-slate-900" value="Lo Espejo">Lo Espejo</option>
-				<option {% if pet.location == 'Lo Prado' %} selected {% endif %} class="bg-slate-900" value="Lo Prado">Lo Prado</option>
-				<option {% if pet.location == 'Macul' %} selected {% endif %} class="bg-slate-900" value="Macul">Macul</option>
-				<option {% if pet.location == 'Maipú' %} selected {% endif %} class="bg-slate-900" value="Maipú">Maipú</option>
-				<option {% if pet.location == 'Pedro Aguirre Cerda' %} selected {% endif %} class="bg-slate-900" value="Pedro Aguirre Cerda">
-					Pedro Aguirre Cerda
-				</option>
-				<option {% if pet.location == 'Peñalolén' %} selected {% endif %} class="bg-slate-900" value="Peñalolén">Peñalolén</option>
-				<option {% if pet.location == 'Pudahuel' %} selected {% endif %} class="bg-slate-900" value="Pudahuel">Pudahuel</option>
-				<option {% if pet.location == 'Quilicura' %} selected {% endif %} class="bg-slate-900" value="Quilicura">Quilicura</option>
-				<option {% if pet.location == 'Quinta Normal' %} selected {% endif %} class="bg-slate-900" value="Quinta Normal">Quinta Normal</option>
-				<option {% if pet.location == 'Recoleta' %} selected {% endif %} class="bg-slate-900" value="Recoleta">Recoleta</option>
-				<option {% if pet.location == 'Renca' %} selected {% endif %} class="bg-slate-900" value="Renca">Renca</option>
-				<option {% if pet.location == 'San Joaquin' %} selected {% endif %} class="bg-slate-900" value="San Joaquin">San Joaquin</option>
-				<option {% if pet.location == 'San Miguel' %} selected {% endif %} class="bg-slate-900" value="San Miguel">San Miguel</option>
-				<option {% if pet.location == 'San Ramón' %} selected {% endif %} class="bg-slate-900" value="San Ramón">San Ramón</option>
-				<option {% if pet.location == 'Santiago' %} selected {% endif %} class="bg-slate-900" value="Santiago">Santiago</option>
-				<option {% if pet.location == 'Vitacura' %} selected {% endif %} class="bg-slate-900" value="Vitacura">Vitacura</option>
-			</select> -->
-
+			<input type="text" value="{{pet.location}}" name="location" id="location" placeholder="City Name..." class="bg-gray-800 border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500 transition-all rounded px-2 py-1">
 			<label for="phone">Phone Number</label>
 			<input
 				class="bg-gray-800 border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500 transition-all rounded px-2 py-1"
@@ -162,4 +129,5 @@
 		<a class="flex flex-auto border-2 justify-center border-purple-300 text-purple-100 hover:bg-slate-800 font-bold focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all rounded py-2 hover:cursor-pointer mt-2 tracking-wide" href="/search">Cancel</a>
 	</form>
 </section>
+</body>
 {% endblock %}
